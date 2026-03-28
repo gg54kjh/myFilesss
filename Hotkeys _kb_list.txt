@@ -1,0 +1,39 @@
+<div id="d1_" class="mydiv_class">
+<div>
+<style>#d1_{position:fixed; top:0; left:0; background:white; border:1px solid; display:inline-flex; 
+  gap:20px; z-index:99999; overflow:auto; max-height:98vh; line-height: 1.4} 
+  #d1_ div{padding:10px; text-align:left; color:black !important}</style>
+Alt + 1 --- imgbb<br>
+Alt + 2 --- Получить любой Element<br>
+Alt + 3 --- pichome.ru<br>
+Alt + 4 --- Upload to im.ge<br>
+Alt + 5 --- show display:none<br>
+Alt + 6 --- show overflow:hidden<br>
+Alt + 7 --- show:hidden<br>
+Alt + 8 ---<br>   
+Alt + 9 --- Klezmer radio<br>
+Ctrl + Shift + 9 --- Twente Gold radio<br>
+Alt + 0 --- Find Bookmark by keyword<br> 
+     // AND link to text with tilda<br>
+     // AND convert backslashes to double<br>
+Alt + -  --- Комменты на zahav.ru_kb<br>
+Alt + = --- freeimage.host<br>
+</div><div>
+Alt + H --- check-host.net<br> 
+Alt + DEL--- Remove All Selection<br>
+Alt + Q --- Open link mp4 in local player<br>
+Alt + J --- Toggle JS<br>
+Alt + F6 --- activeElementTagName<br>
+Alt + O --- Открыть папку профиль<br>
+Alt + < --- Запуск  go_FindImage<br>
+Alt + E --- Remove Sticky Header<br>
+Alt + End --- Найти причину скроллбара<br>
+Alt + F9 --- Proxy<br>
+Alt + F12 --- Proxy<br>
+Ctrl + Alt + = --- Получить href ссылки без касания<br>
+Ctrl + Alt + / --- Закладки в HTML<br> 
+Ctrl + Alt + D --- Изменить кодировку страницы<br>
+Ctrl + Shift + 5 --- keyboard events<br>
+F4 --- Show куки for current domain<br>
+Shift + F4 --- Убирает Ovrl перевода<br> 
+Ctrl + Shift + F4 --- Откл. перевод видео</div></div>
