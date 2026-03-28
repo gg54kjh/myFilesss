@@ -2,7 +2,7 @@
 <div>
 <style>#d1_{position:fixed; top:0; left:0; background:white; border:1px solid; display:inline-flex; 
   gap:20px; z-index:99999; overflow:auto; max-height:98vh; line-height: 1.4} 
-  #d1_ div{padding:10px; text-align:left; color:black !important}</style>
+  #d1_ div{padding:10px; text-align:left; color:black !important; font-family:arial !important; font-size:1rem !important;}</style>
 Alt + 1 --- imgbb<br>
 Alt + 2 --- Получить любой Element<br>
 Alt + 3 --- pichome.ru<br>
