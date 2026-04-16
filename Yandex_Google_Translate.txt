@@ -21,7 +21,7 @@
    }) ;
 })()
 @@@@@Yandex Slovar
-(()=> {console.log(e);;
+(()=> {
 var SEL = getSelection(),  d = document.activeElement, lang;
 if ("" != SEL) {
    var ra = SEL.getRangeAt(0),
