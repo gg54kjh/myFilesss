@@ -1,6 +1,6 @@
 @@@@@Google Translate
-(()=>{console.log('1', e.ctrlKey);
-   var lang = 'auto';   if(e.ctrlKey) lang='de';   if(e.shiftKey) lang='fr';   if(e.ctrlKey && e.shiftKey) lang='es';
+(()=>{
+   var lang = 'auto';   if(e.ctrlKey) lang='de';   if(e.altKey) lang='fr';   if(e.ctrlKey && e.altKey) lang='es';
    var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' +lang+ '&tl=ru&hl=ru&eotf=0&dt=bd&dt=t&q=' +encodeURIComponent(String(getSelection()));
    fetch (url)
      .then(resp => resp.json())
@@ -21,8 +21,8 @@
    }) ;
 })()
 @@@@@Yandex Slovar
-(()=> {console.log('2', e.ctrlKey);
-var SEL = getSelection(),  d = document.activeElement, lang;
+(()=> {
+var SEL = getSelection(),  d = document.activeElement;
 if ("" != SEL) {
    var ra = SEL.getRangeAt(0),
       l = ra.getBoundingClientRect().right + 1,
@@ -33,8 +33,8 @@ if ("" != SEL) {
    l = window.scrollX + 1;
    t = window.scrollY + 1; 
 }; 
-var lang = e.ctrlKey&&!e.shiftKey ? "de" : e.shiftKey&&!e.ctrlKey ? "fr"
-    : e.ctrlKey&&e.shiftKey ? lang="es" : "en";
+var lang = e.ctrlKey&&!e.altKey ? "de" : e.altKey&&!e.ctrlKey ? "fr"
+    : e.ctrlKey&&e.altKey ? lang="es" : "en";
 
 if (sel.match(/[a-zA-Z]/)) var url =
  "https://dictionary.yandex.net/api/v1/dicservice/lookup?key=dict.1.1.20180725T204509Z.23bef2c1067310de.1932a8038d438ba74c77c89944d9402d7ee89c43&lang="  +lang+  "-ru&text=" +  sel;
