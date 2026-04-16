@@ -47,7 +47,7 @@ sp.className = "mydiv_class";
 sp.ondblclick = function() {this.remove()};
 sp.style.cssText =
    "position:absolute;background:azure;z-index:20000;color:black;top:" + t + "px;left:" + l +
-   "px;padding:4px 8px 6px 10px;max-width:500px;";
+   "px;padding:4px 8px 6px 10px;max-width:500px;"; alert(url);
 fetch(url.trim())
   .then( async (response) => {
       var ip = await response.text();
