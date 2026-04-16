@@ -38,7 +38,7 @@ var lang = e.ctrlKey&&!e.altKey ? "de" : e.altKey&&!e.ctrlKey ? "fr"
 
 if (sel.match(/[a-zA-Z]/)) var url =
  "https://dictionary.yandex.net/api/v1/dicservice/lookup?key=dict.1.1.20180725T204509Z.23bef2c1067310de.1932a8038d438ba74c77c89944d9402d7ee89c43&lang="  +lang+  "-ru&text=" +  sel;
-alert(url);
+
 if(sel.match(/[а-яёА-ЯЁ]/) ) url =
    "https://dictionary.yandex.net/api/v1/dicservice/lookup?key=dict.1.1.20180725T204509Z.23bef2c1067310de.1932a8038d438ba74c77c89944d9402d7ee89c43&lang=ru-"  +lang+  "&text=" + sel;
 
