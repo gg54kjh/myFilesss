@@ -22,7 +22,7 @@
 })()
 @@@@@Yandex Slovar
 (()=> {
-var SEL = getSelection(),  d = document.activeElement, lang='auto';
+var SEL = getSelection(),  d = document.activeElement, lang;
 if ("" != SEL) {
    var ra = SEL.getRangeAt(0),
       l = ra.getBoundingClientRect().right + 1,
