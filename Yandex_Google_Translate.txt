@@ -21,8 +21,8 @@
    }) ;
 })()
 @@@@@Yandex Slovar
-(()=> {alert(e.code);
-var SEL = getSelection(),  d = document.activeElement, lang;
+(()=> {
+var SEL = getSelection(),  d = document.activeElement, lang='auto';
 if ("" != SEL) {
    var ra = SEL.getRangeAt(0),
       l = ra.getBoundingClientRect().right + 1,
@@ -33,8 +33,8 @@ if ("" != SEL) {
    l = window.scrollX + 1;
    t = window.scrollY + 1; 
 }; 
-var lang = e.ctrlKey&&!kl.shiftKey ? "de" : e.shiftKey&&!kl.ctrlKey ? "fr"
-    : e.ctrlKey&&kl.shiftKey ? lang="es" : "en";
+/*var lang = e.ctrlKey&&!kl.shiftKey ? "de" : e.shiftKey&&!kl.ctrlKey ? "fr"
+    : e.ctrlKey&&kl.shiftKey ? lang="es" : "en";*/
 
 if (sel.match(/[a-zA-Z]/)) var url =
  "https://dictionary.yandex.net/api/v1/dicservice/lookup?key=dict.1.1.20180725T204509Z.23bef2c1067310de.1932a8038d438ba74c77c89944d9402d7ee89c43&lang="  +lang+  "-ru&text=" +  sel;
