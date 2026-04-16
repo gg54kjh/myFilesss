@@ -1,7 +1,7 @@
 @@@@@Google Translate
-(()=>{
+(()=>{console.log('1', e.ctrlKey);
    var lang = 'auto';   if(e.ctrlKey) lang='de';   if(e.shiftKey) lang='fr';   if(e.ctrlKey && e.shiftKey) lang='es';
-   var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' +lang+ '&tl=ru&hl=ru&eotf=0&dt=bd&dt=t&q=' +encodeURIComponent(sel);
+   var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' +lang+ '&tl=ru&hl=ru&eotf=0&dt=bd&dt=t&q=' +encodeURIComponent(String(getSelection()));
    fetch (url)
      .then(resp => resp.json())
      .then(ip => {
@@ -21,7 +21,7 @@
    }) ;
 })()
 @@@@@Yandex Slovar
-(()=> {
+(()=> {console.log('2', e.ctrlKey);
 var SEL = getSelection(),  d = document.activeElement, lang;
 if ("" != SEL) {
    var ra = SEL.getRangeAt(0),
