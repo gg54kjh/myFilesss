@@ -47,7 +47,7 @@ sp.style.cssText =
    "position:absolute;background:azure;z-index:20000;color:black;top:" + t + "px;left:" + l +
    "px;padding:4px 8px 6px 10px;max-width:500px";
 if (e.target.matches('textarea, input'))
-   sp.style.top = window.scrollY + 40 +'px'; console.log(window.scrollY);
+  sp.style.top = window.scrollY + 1 +'px';
 fetch(url.trim())
   .then( async (response) => {
       var ip = await response.text();
