@@ -33,7 +33,7 @@ if ("" != SEL) {
   // l = window.scrollX + 1;
   // t = window.scrollY + 1; 
      l = e.pageX +30; 
-     t = window.scrollY - 30;   
+     t = e.pageY - 30;   
 }; 
 var lang = e.ctrlKey&&!e.altKey ? "de" : e.altKey&&!e.ctrlKey ? "fr"
     : e.ctrlKey&&e.altKey ? lang="es" : "en";
