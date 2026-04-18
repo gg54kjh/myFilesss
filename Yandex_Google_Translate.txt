@@ -22,10 +22,10 @@
 })()
 @@@@@Yandex Slovar
 (()=> {
-var SEL = getSelection(), sel, d = document.activeElement;
+var SEL = getSelection(), sel, l, t, d = document.activeElement;
 if (d.matches('textarea, input')) {
-  var l = window.scrollX + 1,
-      t = window.scrollY + 1; 
+  l = window.scrollX + 1;
+  t = window.scrollY + 1; 
   sel = d.value.substring(d.selectionStart, d.selectionEnd);
 }
 else {
