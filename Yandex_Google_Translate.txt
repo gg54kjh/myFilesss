@@ -30,10 +30,8 @@ if ("" != SEL) {
       sel = SEL.toString();
 } else  if (SEL=='' && d.textLength){
    sel = d.value.substring(d.selectionStart, d.selectionEnd);
-  // l = window.scrollX + 1;
-  // t = window.scrollY + 1; 
-     l = e.pageX +30; 
-     t = e.pageY - 30;   
+   l = window.scrollX + 1;
+   t = window.scrollY + 45; 
 }; 
 var lang = e.ctrlKey&&!e.altKey ? "de" : e.altKey&&!e.ctrlKey ? "fr"
     : e.ctrlKey&&e.altKey ? lang="es" : "en";
@@ -43,9 +41,7 @@ if (sel.match(/[a-zA-Z]/)) var url =
 
 if(sel.match(/[а-яёА-ЯЁ]/) ) url =
    "https://dictionary.yandex.net/api/v1/dicservice/lookup?key=dict.1.1.20180725T204509Z.23bef2c1067310de.1932a8038d438ba74c77c89944d9402d7ee89c43&lang=ru-"  +lang+  "&text=" + sel;
-     l = e.pageX + 30; 
-     t = e.pageY - 30; 
-console.log(e); console.log(l); console.log(t);
+
 var sp = document.body.appendChild(document.createElement("span"));
 sp.className = "mydiv_class";
 sp.ondblclick = function() {this.remove()};
