@@ -1,5 +1,4 @@
 @@@@@Google Translate
-console.log(e);
 (()=>{
    var lang = 'auto';   if(e.ctrlKey) lang='de';   if(e.altKey) lang='fr';   if(e.ctrlKey && e.altKey) lang='es';
    var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' +lang+ '&tl=ru&hl=ru&eotf=0&dt=bd&dt=t&q=' +encodeURIComponent(String(getSelection()));
@@ -35,7 +34,7 @@ if ("" != SEL) {
    t = window.scrollY + 1; 
 }; 
 var lang = e.ctrlKey&&!e.altKey ? "de" : e.altKey&&!e.ctrlKey ? "fr"
-    : e.ctrlKey&&e.altKey ? lang="es" : "en"; alert(lang);
+    : e.ctrlKey&&e.altKey ? lang="es" : "en";
 
 if (sel.match(/[a-zA-Z]/)) var url =
  "https://dictionary.yandex.net/api/v1/dicservice/lookup?key=dict.1.1.20180725T204509Z.23bef2c1067310de.1932a8038d438ba74c77c89944d9402d7ee89c43&lang="  +lang+  "-ru&text=" +  sel;
