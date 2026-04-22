@@ -1,0 +1,46 @@
+<div id="wrap_" class="mydiv_class" ondblclick="this.remove()">
+<style>#wrap_{
+    position:fixed; left:2px; bottom:1px; padding:7px 12px; display:flex; gap:35px;
+    background:#FFFCDD; color:black; overflow:auto; z-index: 99999;
+    font-family:trebuchet !important; border:1px solid #000; border-radius:10px
+}</style>
+<div>
+Alt + 1 ..... imgbb<br>
+Alt + 2 ..... Получить любой Element<br>
+Alt + 3 ..... pichome.ru<br>
+Alt + 4 ..... Upload to im.ge<br>
+Alt + 5 ...... show display:none<br>
+Alt + 6 ..... show overflow:hidden<br>
+Alt + 7 ..... show:hidden<br>
+Alt + 8 ..... <br>
+Alt + 9 ..... Klezmer radio<br>
+Ctrl + Shift + 9 ......Twente Gold radio<br>
+Alt + 0 ..... Find Bookmark by keyword<br> 
+ &amp; link to text with tilda<br>               
+ &amp; convert backslashes to double
+</div>
+<div>
+Alt + F6...... activeElementTagName<br>
+Alt + F9 ..... Proxy<br>
+Alt + F12 ... Proxy<br>
+Alt - .......... Комменты на zahav.ru<br>
+Alt = ......... freeimage.host<br>
+Alt + DEL ...... Remove All Selection<br>
+Alt + End ----- Найти причину<br>  скроллбара<br>
+Alt + &lt; ...... Запуск  go_FindImage<br>
+Alt + E ....... Remove Sticky Header<br>
+Alt + H ...... check-host.net<br> 
+Alt + Q ...... Open link mp4 in local<br>  player<br>
+Alt + J ....... Toggle JS<br>
+Alt + O ...... Открыть папку профиль<br>
+</div>
+<div>
+F4 ....................... Show cookies for current<br>  domain<br>
+Shift + F4 ............ Убирает Ovrl перевода<br>
+Ctrl + Shift + F4 ... Откл. перевод видео<br>
+Ctrl + Shift + 5 ..... keyboard events<br>
+Ctrl + Alt + D ....... Изменить кодировку<br>  страницы<br>
+Ctrl + Alt + = ....... Получить href ссылки без<br>  касания<br>
+Ctrl + Alt + / ........ Закладки в HTML<br>
+</div>
+</div>
