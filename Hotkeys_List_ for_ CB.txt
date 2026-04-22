@@ -1,4 +1,4 @@
-<div id="wrap_" class="mydiv_class" ondblclick="this.remove()">
+<div id="wrap_" class="mydiv_class">
 <style>#wrap_{
     position:fixed; left:2px; bottom:1px; padding:7px 12px; display:flex; gap:35px;
     background:#FFFCDD; color:black; overflow:auto; z-index: 99999;
@@ -44,3 +44,5 @@ Ctrl + Alt + = ....... Получить href ссылки без<br>  кас
 Ctrl + Alt + / ........ Закладки в HTML<br>
 </div>
 </div>
+<script>setTimeout(()=>document.getElementById('wrap_').
+  ondblclick=function(){document.getElementById('wrap_').remove()}, 500)</script>
