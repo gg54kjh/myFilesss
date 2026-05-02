@@ -66,5 +66,5 @@ fetch(url.trim())
  document.body.onmousedown = function(j) {
     j.target != sp && (sp.remove(), document.body.onmousedown = "")
  };
-})()
+}
 
