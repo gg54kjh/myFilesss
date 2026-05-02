@@ -1,4 +1,4 @@
-let Google_Translate = ((e)=>{
+function Google_Translate(e) {
    var lang = 'auto';   if(e.ctrlKey) lang='de';   if(e.altKey) lang='fr';   if(e.ctrlKey && e.altKey) lang='es';
    var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' +lang+ '&tl=ru&hl=ru&eotf=0&dt=bd&dt=t&q=' +encodeURIComponent(String(getSelection()));
    fetch (url)
@@ -18,9 +18,9 @@ let Google_Translate = ((e)=>{
         else perev2='';
         alert ( '[ ' + langu + ' ]\n\n' + arr.join('') + '||' +dict + '\n' +perev2) ; 
    }) ;
-})()
+}
 
-let Yandex_Slovar = (()=> {
+function Yandex_Slovar(e) {
 var SEL = getSelection(), sel, l, t, d = document.activeElement;
 if (d.matches('textarea, input')) {
   l = window.scrollX + 1;
