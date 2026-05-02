@@ -1,0 +1,71 @@
+@@@@@Google Translate
+(()=>{
+   var lang = 'auto';   if(e.ctrlKey) lang='de';   if(e.altKey) lang='fr';   if(e.ctrlKey && e.altKey) lang='es';
+   var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' +lang+ '&tl=ru&hl=ru&eotf=0&dt=bd&dt=t&q=' +encodeURIComponent(String(getSelection()));
+   fetch (url)
+     .then(resp => resp.json())
+     .then(ip => {
+         var arr=[], dict=[], perev2; 
+         if (ip[1]) {
+            for(i=0; i<ip[1].length; i++) 
+               dict.push('\n\u25CF ' +(ip[1][i][1]).join(', '));
+         } else dict = '';
+
+         for(i=0; i<ip[0].length; i++){
+            arr.push(ip[0][i][0]) 
+         } 
+        var langu = ip[2].toUpperCase();
+        if(ip[1] && ip[1][1])  perev2 = '\u25CF ' +ip[1][1][1].join(', ');
+        else perev2='';
+        alert ( '[ ' + langu + ' ]\n\n' + arr.join('') + '||' +dict + '\n' +perev2) ; 
+   }) ;
+})()
+@@@@@Yandex Slovar
+(()=> {
+var SEL = getSelection(), sel, l, t, d = document.activeElement;
+if (d.matches('textarea, input')) {
+  l = window.scrollX + 1;
+  t = window.scrollY + 1; 
+  sel = d.value.substring(d.selectionStart, d.selectionEnd);
+}
+else {
+  var ra = SEL.getRangeAt(0);
+  l = ra.getBoundingClientRect().right + 1;
+  t = ra.getBoundingClientRect().top + window.scrollY - 30;
+  sel = SEL.toString();
+}
+var lang = e.ctrlKey&&!e.altKey ? "de" : e.altKey&&!e.ctrlKey ? "fr"
+    : e.ctrlKey&&e.altKey ? lang="es" : "en";
+if (sel.match(/[a-zA-Z]/)) var url =
+ "https://dictionary.yandex.net/api/v1/dicservice/lookup?key=dict.1.1.20180725T204509Z.23bef2c1067310de.1932a8038d438ba74c77c89944d9402d7ee89c43&lang="  +lang+  "-ru&text=" +  sel;
+
+if(sel.match(/[а-яёА-ЯЁ]/) ) url =
+   "https://dictionary.yandex.net/api/v1/dicservice/lookup?key=dict.1.1.20180725T204509Z.23bef2c1067310de.1932a8038d438ba74c77c89944d9402d7ee89c43&lang=ru-"  +lang+  "&text=" + sel;
+
+var sp = document.body.appendChild(document.createElement("span"));
+sp.className = "mydiv_class";
+sp.ondblclick = function() {this.remove()};
+sp.style.cssText =
+   "position:absolute;background:azure;z-index:20000;color:black;top:" + t + "px;left:" + l +
+   "px;padding:4px 8px 6px 10px;max-width:500px";
+
+fetch(url.trim())
+  .then( async (response) => {
+      var ip = await response.text();
+      if (ip.includes('code="200"><head /></DicResult>')) {
+         sp.innerHTML = "<b>Not found</b>";   return
+      }
+      let pron = ip.match(/ts=\"(.*?)\">/),
+          PRON = pron ? pron[1] : "",
+          results = ip.matchAll(/fr=.+?<text>(.*?)<\/text>/g),
+          arrRes = [];
+      for (res of results) {
+         arrRes.push(res[1]) 
+      } 
+      sp.innerHTML="<b>&nbsp;[ " + PRON + " ]</b><br>" +arrRes.join(', ')
+});
+ document.body.onmousedown = function(j) {
+    j.target != sp && (sp.remove(), document.body.onmousedown = "")
+ };
+})()
+@@@@@
