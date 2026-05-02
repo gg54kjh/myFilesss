@@ -1,5 +1,5 @@
-let Google_Translate = ((ee)=>{
-   var lang = 'auto';   if(ee.ctrlKey) lang='de';   if(ee.altKey) lang='fr';   if(ee.ctrlKey && ee.altKey) lang='es';
+let Google_Translate = ((e)=>{
+   var lang = 'auto';   if(e.ctrlKey) lang='de';   if(e.altKey) lang='fr';   if(e.ctrlKey && e.altKey) lang='es';
    var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' +lang+ '&tl=ru&hl=ru&eotf=0&dt=bd&dt=t&q=' +encodeURIComponent(String(getSelection()));
    fetch (url)
      .then(resp => resp.json())
