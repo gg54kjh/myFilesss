@@ -1,5 +1,4 @@
-@@@@@Google Translate
-(()=>{
+let Google_Translate = (()=>{
    var lang = 'auto';   if(e.ctrlKey) lang='de';   if(e.altKey) lang='fr';   if(e.ctrlKey && e.altKey) lang='es';
    var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' +lang+ '&tl=ru&hl=ru&eotf=0&dt=bd&dt=t&q=' +encodeURIComponent(String(getSelection()));
    fetch (url)
@@ -20,8 +19,8 @@
         alert ( '[ ' + langu + ' ]\n\n' + arr.join('') + '||' +dict + '\n' +perev2) ; 
    }) ;
 })()
-@@@@@Yandex Slovar
-(()=> {
+
+let Yandex_Slovar = (()=> {
 var SEL = getSelection(), sel, l, t, d = document.activeElement;
 if (d.matches('textarea, input')) {
   l = window.scrollX + 1;
