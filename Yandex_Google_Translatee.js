@@ -23,7 +23,7 @@ function Google_Translate(e) {
         url: url,
         onload: function(response) {
            let ip = response.responseText;
-        var arr=[], dict=[], perev2; 
+           var arr=[], dict=[], perev2; 
          if (ip[1]) {
             for(i=0; i<ip[1].length; i++) 
                dict.push('\n\u25CF ' +(ip[1][i][1]).join(', '));
@@ -35,7 +35,7 @@ function Google_Translate(e) {
         var langu = ip[2].toUpperCase();
         if(ip[1] && ip[1][1])  perev2 = '\u25CF ' +ip[1][1][1].join(', ');
         else perev2='';
-        alert ( '[ ' + langu + ' ]\n\n' + arr.join('') + '||' +dict + '\n' +perev2)
+        alert ( '[ ' + langu + ' ]\n\n' + arr.join('') + '||' +dict + '\n' +perev2) ;
   }  })   
 }
 
