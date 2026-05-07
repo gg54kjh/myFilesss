@@ -1,7 +1,7 @@
 function Google_Translate(e) {
    var lang = 'auto';   if(e.ctrlKey) lang='de';   if(e.altKey) lang='fr';   if(e.ctrlKey && e.altKey) lang='es';
    var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' +lang+ '&tl=ru&hl=ru&eotf=0&dt=bd&dt=t&q=' +encodeURIComponent(String(getSelection()));
-   fetch (url)
+  /* fetch (url)
      .then(resp => resp.json())
      .then(ip => {
          var arr=[], dict=[], perev2; 
@@ -17,7 +17,26 @@ function Google_Translate(e) {
         if(ip[1] && ip[1][1])  perev2 = '\u25CF ' +ip[1][1][1].join(', ');
         else perev2='';
         alert ( '[ ' + langu + ' ]\n\n' + arr.join('') + '||' +dict + '\n' +perev2) ; 
-   }) ;
+   }) ;*/
+    GM_xmlhttpRequest({
+        method: "GET",
+        url: url,
+        onload: function(response) {
+           let ip = response.responseText;
+        var arr=[], dict=[], perev2; 
+         if (ip[1]) {
+            for(i=0; i<ip[1].length; i++) 
+               dict.push('\n\u25CF ' +(ip[1][i][1]).join(', '));
+         } else dict = '';
+
+         for(i=0; i<ip[0].length; i++){
+            arr.push(ip[0][i][0]) 
+         } 
+        var langu = ip[2].toUpperCase();
+        if(ip[1] && ip[1][1])  perev2 = '\u25CF ' +ip[1][1][1].join(', ');
+        else perev2='';
+        alert ( '[ ' + langu + ' ]\n\n' + arr.join('') + '||' +dict + '\n' +perev2)
+  }  })   
 }
 
 function Yandex_Slovar(e) {
