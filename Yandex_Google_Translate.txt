@@ -21,7 +21,7 @@
    }) ;
 })()
 @@@@@Yandex Slovar
-(()=> {
+(()=> {console.log(GM_xmlhttpRequest);
 var SEL = getSelection(), sel, l, t, d = document.activeElement;
 if (d.matches('textarea, input')) {
   l = window.scrollX + 1;
