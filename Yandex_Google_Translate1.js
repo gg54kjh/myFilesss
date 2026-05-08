@@ -22,7 +22,7 @@ function Google_Translate(e) {
         method: "GET",
         url: url,
         onload: function(response) {
-           let ip = response.responseText; console.lo
+           let ip = JSON.parse(response.responseText);
            var arr=[], dict=[], perev2; 
          if (ip[1]) {
             for(i=0; i<ip[1].length; i++) 
