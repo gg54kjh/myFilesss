@@ -22,7 +22,7 @@ function Google_Translate(e) {
         method: "GET",
         url: url,
         onload: function(response) {
-           let ip = response.json;
+           let ip = response.responseText; console.lo
            var arr=[], dict=[], perev2; 
          if (ip[1]) {
             for(i=0; i<ip[1].length; i++) 
@@ -67,26 +67,11 @@ sp.style.cssText =
    "position:absolute;background:azure;z-index:20000;color:black;top:" + t + "px;left:" + l +
    "px;padding:4px 8px 6px 10px;max-width:500px";
 
-/*fetch(url.trim())
-  .then( async (response) => {
-      var ip = await response.text();
-      if (ip.includes('code="200"><head /></DicResult>')) {
-         sp.innerHTML = "<b>Not found</b>";   return
-      }
-      let pron = ip.match(/ts=\"(.*?)\">/),
-          PRON = pron ? pron[1] : "",
-          results = ip.matchAll(/fr=.+?<text>(.*?)<\/text>/g),
-          arrRes = [];
-      for (res of results) {
-         arrRes.push(res[1]) 
-      } 
-      sp.innerHTML="<b>&nbsp;[ " + PRON + " ]</b><br>" +arrRes.join(', ')
-});*/
-      GM_xmlhttpRequest({
-        method: "GET",
-        url: url,
-        onload: function(response) {
-           let ip = response.responseText;
+GM_xmlhttpRequest({
+   method: "GET",
+   url: url,
+   onload: function(response) {
+      let ip = response.responseText;
       if (ip.includes('code="200"><head /></DicResult>')) {
          sp.innerHTML = "<b>Not found</b>";   return
       }
@@ -98,7 +83,7 @@ sp.style.cssText =
          arrRes.push(res[1]) 
       }
       sp.innerHTML="<b>&nbsp;[ " + PRON + " ]</b><br>" +arrRes.join(', ')
-  }  }) 
+}  }) 
  document.body.onmousedown = function(j) {
     j.target != sp && (sp.remove(), document.body.onmousedown = "")
  };
