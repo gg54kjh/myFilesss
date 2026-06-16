@@ -1,6 +1,6 @@
 <div id="wrap_" class="mydiv_class">
 <style>#wrap_{
-    position:fixed; left:2px; bottom:1px; padding:7px 12px; display:flex; gap:35px;
+    position:fixed; left:2px; top:1px; padding:7px 12px; display:flex; gap:35px;
    line-height:1.2 !important; background:#f3ffff; color:black; overflow:auto; z-index: 99999;
     font-family:arial !important; border:1px solid #000; border-radius:10px
 }
