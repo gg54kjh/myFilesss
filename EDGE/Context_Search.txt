@@ -1,0 +1,192 @@
+@@@@@Context Search
+var X, Y;
+document.addEventListener('mousemove', u=>{X = u.clientX; Y = u.clientY;
+ var  doc=document, lft = X, tp = Y-124, d = doc.createElement('div'); d.id = 'contSearch';
+d.className='mydiv_class';
+d.innerHTML=
+    `  <div id="combo_"   class="_comb">
+          <span id="d1_" class="cl1">Archive</span><span id="d2_"  class="cl1">Urban</span><span id="d3_" class="cl1">&#x27A4;&#x27A4;&#x27A4;</span>
+       </div>
+        <div style="display:flex">  
+             <div class="Yan cl3" style="margin-right:3px; width:43%">Yandex</div>
+             <div class="cl1 Yan" style="margin-left:0; width:52%">Google no AI</div>
+        </div>
+       <div id='combo1' class="_comb">
+          <span id="d1" class="cl1">GImg</span><span><a id="lense" href="#">Lense</a></span><span id="d3" class="cl1">GImg Yap</span>
+       </div>
+       <div id='combo2' class="_comb">
+          <span id="d4" class="cl3">Yandex Img</span><span id="d6" class="cl3">YaImg Yap</span>
+       </div>
+       <div id='combo3' class="_comb">
+          <span id="d7" class="cl4">Alt + 8</span><span id="d8" class="cl4">Resize</span><span id="d9" class="cl4">Webp ></span>
+       </div>
+       <div class="Yan cl3">Yandex by site</div>
+       <div id="combo4"  class="_comb"><span class="cl1">Youtube</span><span class="cl1">HDrez</span><span class="cl1">Torrent</span></div> `;
+d.insertAdjacentHTML('afterbegin',
+`<style>
+#contSearch {position:fixed; z-index:2147483647; background:#F2F4FF; top: ${tp}px; left: ${lft}px; display:inline-block; color:black; !important; min-width: 240px}
+#contSearch div.Yan {cursor:default; padding:3px 5px; margin: 2px 5px 0 5px; border:1px solid;}
+#contSearch .cl1:hover {background:#0074E8; color:white}
+#contSearch .cl3:hover {background:rgba(252, 63, 29, .4); color:white}    #contSearch .cl4:hover{background:rgba(255,215, 0, .4)}
+#contSearch ._comb {padding:2px 5px 0 5px; cursor:default}
+#contSearch ._comb span {display:inline-block; border:1px solid; padding:4px 5px }
+#contSearch ._comb {display: flex; justify-content: space-between;}
+#contSearch #submen div {padding: 3px 8px; cursor:default}
+</style>`
+);
+doc.body.appendChild(d);
+var raznH = visualViewport.width - d.getBoundingClientRect().right - 10,
+    raznV =  d.getBoundingClientRect().bottom - visualViewport.height;
+if(raznH<0) d.style.left = d.getBoundingClientRect().left + raznH +'px';
+setTimeout(()=>{if(raznV>0) {d.style.top='unset'; d.style.bottom='3px'}}, 0);
+if(d.getBoundingClientRect().top<0)  d.style.top = '5px';
+if (!s) {
+   let inp = document.createElement('input');  
+   document.getElementById('contSearch').prepend(inp); inp.focus();
+   inp.onchange=()=>s = inp.value
+}
+var openPage = url => GM_openInTab(url, {active: true});
+var remMoDown = fn => { d.remove();  doc.removeEventListener('mousedown', fn) };
+doc.addEventListener('mousedown', rer=e=>{
+    if (!e.target.closest('#contSearch'))  remMoDown(rer);
+    else {
+        if (!e.target.matches('#contSearch>input')) {
+           remMoDown(rer); 
+           if (s)  search(e, e.target, s); 
+        }          // else  navigator.clipboard.readText().then(clipText => search(e, e.target, clipText))
+    }
+})
+ function search(e, arg, s){ 
+    let im = document.elementFromPoint(X, Y);
+    if(im.nodeName=='IMG')  {
+       s = im.src;
+       im.parentNode?.getAttribute('href')?.match(/.jpg|.jpeg|.png|.gif|.webp/i) && (s = im.parentNode.href)
+    }
+
+     if(arg.textContent=='Archive'){
+        s.startsWith("http") ? openPage  ("http://web.archive.org/web/*/" +s)  :
+           location.href="http://web.archive.org/web/*/"  +location.href;
+          return
+     }
+     if(arg.textContent=='Urban'){
+          openPage  ("https://www.urbandictionary.com/" +s) ;  return
+     }
+     if(arg.textContent=='Yandex'){
+console.log("%c Из cont.search поиск по Яндекс url:", "font-family:verdana; font-weight:800; color: limegreen", "\nhttps://yandex.ru/search/?text=" +s);
+          openPage  ("https://yandex.ru/search/?text=" +s) ;  return
+     }
+     if(arg.textContent=='Google no AI'){
+          openPage  ("https://www.google.com/search?client=opera&udm=web&q=" +s)
+     }     
+     if(arg.textContent=='GImg'){
+          if(s.startsWith('http')) {
+             openPage("https://lens.google.com/uploadbyurl?url=" +s)
+          }
+          else openPage("https://www.google.com/search?tbm=isch&hl=ru&source=hp&q=" +encodeURIComponent(s)) ;
+          return
+     }
+     if (arg.textContent=='Lense') {
+        openPage
+          ('https://www.google.com/searchbyimage?image_url=' +s+ '&client=firefox-b-d');
+        return
+     }
+
+     if(arg.textContent=='GImg Yap'){
+        location.href = location.href + '&as_sitesearch=yaplakal.com'
+     }
+     if(arg.textContent=='Yandex Img'){
+        if(s.startsWith('http'))
+           openPage("https://yandex.ru/images/search?rpt=imageview&url=" +encodeURIComponent (s)) ;
+        else  openPage("http://yandex.ru/images/search?text=" +encodeURIComponent (s));
+        return
+     }
+     if(arg.textContent=='YaImg Yap'){
+        openPage
+          ( 'https://yandex.ru/images/search?url='+
+           encodeURIComponent(s)+'&rpt=imageview&site=www.yaplakal.com' ) ;  return
+     }
+     if(arg.textContent=='Alt + 8'){
+          openPage('https://www.online-image-editor.com//?fa=upload_image&tool=crop&image_path=' +encodeURIComponent (s)) ;  return
+     }
+     if(arg.textContent=='Resize'){
+
+      }
+      if(arg.textContent=='Webp >'){
+          openTab("https://ezgif.com/webp-to-jpg");
+          return
+      }
+      if(arg.textContent=='Yandex by site'){
+          var domaine = location.host.replace('inkubator.yaplakal.', 'www.yaplakal.');
+          if(getSelection().toString()=='' && !doc.activeElement.textLength)
+                s = prompt('Search  ' +domaine+ '   using Yandex:', '') ;  if(!s) return;
+          openPage('https://www.yandex.ru/yandsearch?text=site:' + domaine + ' ' + s) ;  return
+      }
+      if(arg.textContent=='Youtube'){
+          openPage("https://www.youtube.com/results?search_query=" +s) ;  return
+      }
+      if(arg.textContent=='HDrez'){
+          openPage("https://rezka.ag/search/?do=search&subaction=search&q=" +s) ;  return
+      }
+
+      if(arg.textContent=='Torrent'){
+           openPage("https://rutracker.org/forum/tracker.php?nm=" +s) ;  return
+      }
+      if(arg.textContent=='Webref.ru'){
+         GM.xmlHttpRequest({
+            method: "GET",
+            url: 'https://webref.ru/html/' +s,
+            onload: function(response) {
+               let ip = response.responseText;
+               if (ip.match(/Страница не найдена \| WebReference/))
+                  open('https://webref.ru/css/' +s);
+               else open('https://webref.ru/html/' +s)
+
+         }  })
+      }
+      if(arg.textContent=='Can I use'){
+          openPage('https://caniuse.com/?search=' +s); return
+      }
+      if(arg.textContent=='Ethymol.'){
+           openPage('https://lexicography.online/etymology/' + s.split('')[0] + '/' + s) ;  return
+      }
+      if(arg.textContent=='Gramota.ru Phrase'){
+           openPage('http://new.gramota.ru/spravka/buro/search-answer?s='+encodeURIComponent(s)) ;  return
+      }
+      if(arg.textContent=='Udarenie'){
+           openPage('https://udarenieru.ru/index.php?doc='+encodeURIComponent(s)) ;  return
+      }
+      if(arg.textContent=='Slovari.cc'){
+           openPage('https://slovar.cc/poisk-find.html?searchword='+encodeURIComponent(s)+'&ordering=&searchphrase=all') ;  return
+      }
+ }
+        doc.querySelector('#contSearch #d3_').onmouseover=()=>setTimeout(()=>createSubmen(), 500);
+function createSubmen() {
+   var cont = doc.getElementById('contSearch');
+   var submen = cont.appendChild(doc.createElement('div')); submen.id='submen';
+   submen.style.cssText='position:absolute; top:-10px; left:220px; background:#e3e7ff; width: 210px';
+   submen.innerHTML=
+    `
+     <div class="cl1">Webref.ru</div>
+     <div class="cl1">Can I use</div>
+     <div class="cl1">Ethymol.</div>
+     <div class="cl1">Gramota.ru Phrase </div>
+     <div class="cl1">Udarenie</div>
+     <div class="cl1">Slovari.cc</div>`
+     if(submen.getBoundingClientRect().right>1245) {
+       cont.style.left = cont.getBoundingClientRect().left - (submen.getBoundingClientRect().right-visualViewport.width) +'px';
+       cont.style.transition = "all 1s"
+     }
+     setTimeout(()=>{
+           var el = submen, betw = doc.querySelector('#combo_').lastElementChild, tm1, tm2;
+           betw.onmouseover=d=>{
+               tm1=setTimeout(()=>{
+                   el.style.display=='none'&&(!d.relatedTarget.closest('#submen')&&(el.style.display='inline-block'))
+               }, 500) } ;
+           betw.onmouseleave=()=>clearTimeout(tm1);
+           el.onmouseleave=g=>tm2=setTimeout(()=> {el.style.display='none'}, 300) ;
+           el.onmouseover=()=>clearTimeout(tm2);
+      }, 600);
+}
+
+}, {once:true})
+@@@@@
