@@ -1,6 +1,6 @@
 @@@@@Attributes
 (()=> {
-     let a = document.elementFromPoint(x, y-123),
+     let a = document.elementFromPoint(xx, yy-123),
           atts = a.attributes,
           orgW = a.offsetWidth, orgH = a.offsetHeight,
           W = Math.round(a.getBoundingClientRect().width),
@@ -26,7 +26,7 @@ line-height:normal;max-height:100vh;overflow:auto`;
 })()
 @@@@@get Text Content    // -----------   Получение Text Content
 (()=> {
-let txt, div, padding = '20px;';  let Y = y-123, X = x; 
+let txt, div, padding = '20px;';  let Y = yy-123, X = xx; 
    a = el = document.elementFromPoint(X, Y);;
    a.style.border = '1px red solid';
    if (a.textContent != '') {
