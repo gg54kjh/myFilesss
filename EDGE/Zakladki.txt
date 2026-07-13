@@ -1,0 +1,137 @@
+@@@@@Zakladki
+(()=> {
+if (document.querySelector('#zakl')) return;
+var str = ` 
+<div id="zakl" class="mydiv_class mydrg"><meta charset="utf-8" />
+    <style>
+         #zakl{position:fixed; top:0; left:550px; display: flex; background:ghostwhite;
+         z-index:99999; border:1px solid; border-radius:7px; padding:8px 0 }
+         #zakl div{display:inline-block; margin-bottom:2px; padding:2px 13px; font-size:20px; color:black; text-align:left}
+         #zakl a{color:black}
+         #zakl #lft div:hover{color:blue !important; cursor:pointer} 
+         #zakl #lft a:hover{color:blue !important; cursor:pointer} 
+         #zakl #rigt div:hover{color:blue !important; cursor:pointer}
+         #zakl #rigt a:hover{color:blue !important; cursor:pointer}  
+         #zakl a{text-decoration:none}
+         #zakl hr{margin: 0 0 .3rem 0}
+     </style>
+   <div id="lft">
+      <div ur="file:///C:/My Downloads/F+/Online JavaScript beautifier.htm">Online JS beautifier.htm</div><br>
+      <div ur="file:///C:/My Portable Soft/Ace_Editor/ace-builds-master/ACE-JS.html">ACE - JS</div><br>
+      <div ur="file:///C:/My Portable Soft/MyCodemirror/CodeMirror-HTML.html">Codemirror HTML</div><br>
+      <div id='zap'>Zap colors</a></div><br> 
+      <div id="quora">Quora remove blur</div><br>
+      <div ur="https://www.youtube.com/@sergey_auslender">Ауслендер Youtube.</div><br>
+      <div ur="file:///C:/My%20Downloads/F+/StrokesPlus%20Help.html">S+</div>
+      <hr>
+      <div id="fontsize">+++++</div><br>
+      <div id="vs">View Scripts</div><br>
+      <div id="vi">View All Images</div>                  
+   </div>
+   <div id="rigt">
+        <div id="ip2">My IP-2</div><br>  
+        <div id="ip3">My IP-3</div><br> 
+        <div ur="https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default">Песочница как на puzzleweb</div><br>
+        <div id="ttl">Change document title</div><br>
+        <div id="mult">-= Multcloud  OLD version =-</div><br>        
+        <div ur="file:///C:/Documents%20and%20Settings/home/Documents/Сниппеты%20Firefox%2085.txt">Сниппеты 85</div><br>
+        <div ur="file:///C:/Documents%20and%20Settings/home/Documents/Сниппеты%20для%20Firefox.txt">Снипп.</div>
+        <hr>
+        <div id="pinfo">Pinfo</div><br>
+        <div id="as">Allow Text Selection</div><br>
+        <div id="rchild">Remove Children</div>
+    
+    </div>
+
+</div>`; console.log(str);
+document.body.insertAdjacentHTML('beforeend', str);
+let z = document.querySelector('#zakl'), zs = document.querySelectorAll('#zakl div[ur]');
+document.addEventListener('mousedown', fgh=w=>{
+  if (w.button==0 && !z.contains(w.target)) { z.remove(); document.removeEventListener('mousedown', fgh) }
+});
+for (let s of zs)
+  s.onclick=()=>{GM_openInTab(s.getAttribute('ur'), {active: true}); z.remove()};
+document.querySelector('#zap').onclick=e=>{
+    var newSS, styles = '*:not(canvas){background:white !important;color:black !important } :link,:link *,:link:hover{color:#2518B5 !important}:visited,:visited *,:visited:hover{color:#940099 !important}';
+    newSS = document.createElement('link');
+    newSS.rel = 'stylesheet';
+    newSS.href = 'data:text/css,' + escape(styles);
+    document.getElementsByTagName('head')[0].appendChild(newSS)
+}
+document.querySelector('#quora').onclick=e=>{
+var d=document,els=d.getElementsByTagName('*');for(var g of els){let cs=getComputedStyle,st=g.style;if(location.hostname=='www.quora.com'){st.position=='fixed'&&(st.display='none');st.position=='sticky'&&(st.position='static');g.matches('[class*="_overlay"]')&&g.remove();cs(g).maskImage!='none'&&(st.maskImage='none')}if(cs(g).filter!='none'){st.filter='none'}if(location.hostname=='context.reverso.net'){d.getElementById('blocked-results-banner').remove();for(var d of d.querySelectorAll('[class$="blocked"]')){d.style.filter='none'}}if(location.hostname=='www.instagram.com'){for(let r of document.querySelectorAll('#trns_ ~ div'))r.remove();d.getElementById('scrollview').style.cssText+=';position:relative; overflow-y:scroll'}if(location.href.startsWith('https://shrib.com/#')){d.getElementById('umInfo').style.display='none';d.querySelector('textarea[name="t"]').removeAttribute('disabled')}if(location.hostname=='web.archive.org')d.querySelector('#wm-ipp-base').style.display='none';else{var b=cs(d.body).position=='fixed'?';position:static !important;':'',a='overflow:unset !important';d.documentElement.style.cssText+=a;d.body.style.cssText+=b+a;if(cs(g).position=='fixed'&&cs(g).width>='100vw'&&cs(g).height>='100vh')g.remove()}}
+}
+document.querySelector('#fontsize').onclick=e=> {
+(()=>{var p=document.getElementsByTagName('*'),s=(document.body.fntsz==1)?4:2;for(let g of p){if(!g.style.fontSize||parseInt(g.style.fontSize)<20)g.style.setProperty('font-size','20px','important');g.style.setProperty('font-size',(parseInt(g.style.fontSize)+s)+'px','important');g.style.lineHeight=1.4};document.body.fntsz=1})()
+}
+document.querySelector('#pinfo').onclick=e=> {
+    GM_op('file:///C:/My%20Downloads/JSs/Iz-zakladok.txt', 'pinfo')
+}
+document.querySelector('#as').onclick=e=> {
+    GM_op('file:///C:/My%20Downloads/JSs/Iz-zakladok-2.txt', 'as') 
+}
+document.querySelector('#rchild').onclick=e=> {
+    GM_op('file:///C:/My%20Downloads/JSs/Iz-zakladok-2.txt', 'remchildren') 
+}
+
+document.querySelector('#vs').onclick=e=> {
+    GM_op('file:///C:/My%20Downloads/JSs/Iz-zakladok.txt', 'vs')
+}
+document.querySelector('#vi').onclick=e=> {
+    GM_op('file:///C:/My%20Downloads/JSs/Iz-zakladok.txt', 'vi')
+}
+document.querySelector('#ip2').onclick=e=> GM_op('https://www.showmyip.com/', 2)
+document.querySelector('#ip3').onclick=e=> GM_op('https://www.bennetrichter.de/tools/ip/', 3)
+document.querySelector('#ttl').onclick=()=>document.title = '123';
+document.querySelector('#mult').onclick=()=>{
+var d=document;d.querySelectorAll('.el-table__body-wrapper')[2].scrollBy(-1000,0);d.body.insertAdjacentHTML('beforeend','<style id="multStyle">.delete-btns-hide{display:block !important}.el-checkbox{visibility:visible !important}</style>');setTimeout(()=>{d.querySelector('.delete-btn').onclick=()=>d.querySelector('#multStyle')?.remove()},1500)
+}
+Drag();
+function GM_op(url, x) {
+GM.xmlHttpRequest({
+  method: "GET",
+  url: url,
+  onload: function(response) {
+    ip=response.responseText;
+    if (x==2) {
+       ip = ip.match(/<table class="iptab">[\s\S]+?<\/table>/);
+       w = open('', '', 'width=670,height=550,resizable');
+       st = '<style>.iptab tr:nth-of-type(odd){background-color:#F7F4F3}.iptab{border-collapse:collapse}.iptab td{border:1px    solid;padding:4px;vertical-align:baseline}</style>';
+       w.document.write(st + ip);
+       w.document.close()
+     }
+     if (x==3) {
+        ip = ip.match(/<table[\s\S]*?<\/table>/);
+        w = open('', '', 'width=500,height=305,resizable');
+        w.document.write('<div style="display:flex;justify-content:center;height:100%;align-items:center">' + ip[0].replace(/<img.*?">/, '') + '</div>');
+         w.document.close()
+      }
+      if (x=='pinfo') {
+          ip = ip.match(/javascript:(if\(typeof jQuery!="undefined[\S\s]*?statswin.document.close\(\))/);
+          eval(ip[1]) 
+      }
+      if (x=='as') {
+          ip = ip.match(/window\.\_NoHijackHandlers[\s\S]*?'beforeend', styles/);  ip_ = "javascript:(()=>{if(" + ip[0] + ")})()";
+          eval(ip_) 
+      }
+      if (x=='vs') {  
+          ip = ip.match(/s=document.getElementsByTagName\('SCRIPT'\)[\S\s]*?void 0/);
+          eval(ip[0])
+      } 
+      if (x=='vi') { 
+          ip = "(function()" + ip.match(/{! function[\S\s]*?baguetteBox.run/)[0] + `(".gallery", { });  </scr'+'ipt> ');}()})()`;
+          eval(ip)  
+      } 
+      if (x=='remchildren') {
+          ip = '(()=>' + 
+            ip.match(/{var c=1;document\.body\.addEventListener[\S\s]*?};document\.body\.removeEventListener(?!'keydown',ck)/)[0] +
+              "}}})()";
+          document.querySelector('#zakl').remove();
+          eval(ip);
+      }
+  }
+});
+}
+})()
+@@@@@
+
