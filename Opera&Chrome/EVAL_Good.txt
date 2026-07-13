@@ -1,0 +1,220 @@
+@@@@@Coord
+(()=>{var d=document,x,div=d.body.appendChild(d.createElement("div"));div.id="Coor";function yy(s){if(s.shiftKey){if(!d.querySelector('#coor_')){x=d.body.appendChild(div.cloneNode(true));x.id='coor_';x.className="mydiv_class"}else x.remove()}if(s.keyCode==27){div.remove();x?.remove();d.removeEventListener("mousemove",zz,!0);d.removeEventListener("keydown",yy)}};function zz(e){div.innerHTML=`<style>#Coor,#coor_{position:fixed;background:#fff;z-index:2147483647;padding:4px 8px;border:1px solid black;top:${e.clientY}px;left:${e.clientX}px</style>${e.clientX},${e.clientY}<hr>${e.pageX},${e.pageY}`}d.addEventListener("mousemove",zz,!0);d.addEventListener("keydown",yy)
+})()
+@@@@@Vremya
+(()=> {
+var dc = document;
+ dc.body.insertAdjacentHTML('beforeend', `
+      <div id="my_vr">
+          <style>#my_vr{padding:3px 10px;border:6px groove;position:fixed;top:150px; right:3px;background:azure; color:#000;
+              z-index:2147483647; text-align:center}  #my_vr #clock1{font-size:22px}
+              #my_vr #clock2{font-size:30px;font-weight:700}
+          </style>
+          <span id="clock1"></span><br><span id="clock2"></span></div>
+    ` )
+ var div = dc.getElementById('my_vr'), clk1 = dc.getElementById('clock1'),
+      clk2 = dc.getElementById('clock2');  getVremya();
+  createProzr(div);
+ function getVremya(){ 
+     var dt = new Date(),
+           x=dt.toLocaleString('ru', {
+               year: 'numeric',
+               month: 'long',
+               day: 'numeric'
+           }),
+     weekday= [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ] [ dt.getDay() ],
+     time=dt.toString().split(' ')[4];
+     clk1.innerHTML = weekday +'  '+ x;
+     clk2.innerHTML = time
+  }       
+  var int = setInterval(()=>{
+      if(!dc.getElementById('my_vr'))  {
+          clearInterval(int) ; int = null
+      } else  getVremya();
+  }, 500);
+  dc.body.addEventListener('mousedown', function mnn(e) {
+            if (!div.contains(e.target)) {
+                div.remove();  e.currentTarget.removeEventListener('mousedown', mnn);  clearInterval(int); int = null
+  } } )
+})()
+@@@@@Remove Sticky
+(()=> {
+    var els = document.querySelectorAll('*'), fl = 0;
+    document.body.addEventListener('click', remSt)
+    setTimeout(()=>{
+      document.body.removeEventListener('click', remSt)
+    }, 1800)
+    for(var i=0; i<els.length; i++) {
+      if(getComputedStyle(els[i]).position=='fixed')
+        els[i].style.setProperty('display', 'none', 'important');
+      if(els[i].nodeName=='NAV') els[i].remove();
+      if (els[i].shadowRoot)
+        els[i].shadowRoot.innerHTML+='<style>:host{display:none !important}</style>'
+    }
+    function remSt(e){
+      if(e.button!=0) return;
+      for(var i=0; i<els.length; i++)
+        if(getComputedStyle(els[i], null).position=='sticky')
+          els[i].remove();
+      document.body.removeEventListener('click', remSt)
+  }
+})()
+@@@@@Local List
+(()=> {
+    var dv = document.createElement('div'); dv.id = 'bookm'; dv.className = 'mydiv_class mydrg';
+    document.body.append(dv);
+    dv.innerHTML = `
+<a class="ln">&bull; Universal decoder</a>&nbsp;<span>>>></span>
+    <a target="_blank" href="http://www.codenet.ru/services/urlencode-urldecode/">dir</a><br>
+<a class="ln">&bull; HTML entity</a>&nbsp;<span>>>></span>
+    <a target="_blank" href="https://mothereff.in/html-entities">dir</a><br>
+<a class="ln">&bull; keyboard-events</a>&nbsp;<span>>>></span>
+    <a target="_blank" href="https://codeshack.io/keyboard-event-tester/">dir</a><br>
+<a class="ln">&bull; rgb-to-hex converter</a>&nbsp;<span>>>></span><br>
+<a class="ln">&bull; Hebrew Keyboard</a>&nbsp;<span>>>></span>
+    <a target="_blank" href="https://www.branah.com/hebrew">dir</a><br>
+<a class="ln">&bull; Calculator</a>&nbsp;<span>>>></span><br>
+<a class="ln">&bull; Base64 encoder/decoder</a>&nbsp;<span>>>></span>
+    <a target="_blank" href="https://mothereff.in/base64#vents">dir</a><br>
+<a class="ln">&bull; Types of GM_xmlhttpRequest</a><br>
+<a class="ln">&bull; Tampermonkey methods</a><br>
+<div id="betw">&nbsp;</div>
+<div id="right" style="display:none">
+<a class="ln">&bull; Bookmarks</a>
+<br>
+<a class="ln">&bull; Plugins</a>
+<br>
+<a class="ln">&bull; Collapse</a>
+<br>
+<a  class="ln" onclick="javascript:childs=document.querySelectorAll('li[class*=&quot;b-leaf-actions-expandchilds&quot;],[class*=&quot;2mdspost-comment-actions__item--expand&quot;]');for(i=0;i<40;i++)childs[i]?.children[0].click();void 0">&bull; Collapse new design</a>
+<br>
+<a class="ln">&bull; Change font</a>
+ </div>
+<div id="zakr">CLOSE</div>
+<style>#bookm {position:fixed; top:20px; left:650px; background:snow; z-index:20000}
+       #bookm a { color: #000; cursor: pointer; margin-right: 1rem }
+       #bookm  a:hover,  #bookm  span:hover{color: #0000CD}
+       #bookm {border: 5px oldlace groove; padding: 0 10px; z-index: 20000; line-height: 1.45; text-align: left}
+       #bookm #betw {position: absolute; display:inline-block; top:0; right:0; height:40%; width: 19px; background-color: #000}
+       #bookm #right {
+           position: absolute; background-color: snow; white-space: nowrap; padding: 0 8px 6px;
+           border:1px solid; top:10px
+       }
+       #bookm #right  a {margin: 0}
+       #bookm span:hover {text-decoration:underline; cursor:pointer}
+       #bookm #zakr {text-align: center; background: red; color: white; cursor: default; margin-top:10px}
+</style>`;
+setTimeout(()=>{
+  setMover();
+  document.querySelector('#bookm #zakr').onclick=()=>document.querySelector('#bookm').remove();
+  ln = document.querySelectorAll('#bookm a.ln');    
+  sp = document.querySelectorAll('#bookm span');
+  ln[0].onclick=()=>{
+    //  open('https://warm-brioche-096a0d.netlify.app/universal_decoder.html', '', 'width=610, height=659, top=10, left=10')
+        open('https://skilder.neocities.org/Universal_decoder', '', 'width=610, height=659, top=10, left=10')  
+  }
+  sp[0].onclick=()=>GM_o('file:///C:/My%20Downloads/F+/Universal%20decoder.html')
+
+  ln[1].onclick=()=>{
+      //open('https://warm-brioche-096a0d.netlify.app/html_entity_good.html', '',  'width=685, height=708, top=10, left=10')
+        open('https://skilder.neocities.org/HTML_entity_Good', '',  'width=672, height=630, top=10, left=10')   
+  }
+  sp[1].onclick=()=>GM_o('file:///C:/My%20Downloads/F+/HTML_entity_Good.html')
+
+  ln[2].onclick=()=>{
+       open('https://warm-brioche-096a0d.netlify.app/keyboard-events.html', '', 'width=680, height=528, top=45, left=150')
+  }
+  sp[2].onclick=()=>GM_o('file:///C:/My%20Downloads/F+/keyboard-events.htm')
+
+  ln[3].onclick=()=>{
+     // open('https://warm-brioche-096a0d.netlify.app/rgb-to-hex_color_converter.html', '', 'width=500, height=320, top=50, left=380')
+      open('http://moemesto.ru/dazy/file/15257691/qqqq%20%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.htm', '', 'width=500, height=265, top=50, left=380')
+      //Параметры актуальные для файла rgb-to-hex.txt в папке GM_files_Chrome -> 'width=500, height=265, top=50, left=380' 
+  }
+  sp[3].onclick=()=>GM_o('file:///C:/My%20Downloads/F+/rgb-to-hex_color_converter.html')
+
+  ln[4].onclick=()=>{
+      open('https://warm-brioche-096a0d.netlify.app/hebrew_keyboard.html', '', 'width=600, height=404, top=10, left=10')
+  }
+  sp[4].onclick=()=>GM_o('file:///C:/My%20Downloads/F+/Hebrew%20Keyboard_85.htm')
+
+  ln[5].onclick=()=>{
+      open('https://warm-brioche-096a0d.netlify.app/calculator.html', '', 'width=556, height=547, top=70, left=376')
+  }
+  sp[5].onclick=()=>GM_o('file:///C:/My%20Downloads/F+/Calculator.html')
+   
+  ln[6].onclick=()=>{
+      open('https://warm-brioche-096a0d.netlify.app/base64 encoder_decoder.html', '', 'width=608, height=708, top=10, left=10')
+  } 
+  sp[6].onclick=()=>GM_o('file:///C:/My%20Downloads/F+/Base64_encoder_decoder_mothereff.html')
+  
+  ln[7].onclick=()=>GM_o('https://wiki.greasespot.net/GM.xmlHttpRequest#Bare_Minimum');
+  ln[8].onclick=()=>GM_o('https://www.tampermonkey.net/documentation.php')
+  ln[9].onclick=()=>GM_o('file:///C:/My%20Downloads/JSs/Bookm..html');
+  ln[10].addEventListener('click', function() {
+    function R(w) {
+      try {
+        var d = w.document,j, i, t, T, N, b, r = 1,C;
+        for (j = 0; t = ["object", "embed", "applet", "iframe","video"][j]; ++j) {
+          T = d.getElementsByTagName(t);
+          for (i = T.length - 1; (i + 1) && (N = T[i]); --i)
+            if (j != 3 || !R((C = N.contentWindow) ? C : N.contentDocument.defaultView)) {
+              b = d.createElement("div");
+              b.style.width = N.width;
+              b.style.height = N.height;
+              b.innerHTML = "<del>" + (j == 3 ? "third-party " + t : t) + "</del>";
+              N.parentNode.replaceChild(b, N);
+            }
+         }
+      } catch (E) {r = 0}
+      return r
+   }
+   R(self);
+   var i, x;
+   for (i = 0; x = frames[i]; ++i) R(x)
+  })
+  ln[11].addEventListener('click', function() {
+    var commentboxes = document.querySelectorAll('a[onclick^="ExpanderEx.make"]');
+    for (var z = 0; z < commentboxes.length; z++) {
+      if (commentboxes[z].getAttribute('onclick') && ~commentboxes[z].getAttribute('onclick').indexOf('ExpanderEx.make') || ~commentboxes[z].textContent.indexOf('Expand'))
+         setTimeout((function(box) {
+           return function() {
+             box.click()
+           }
+        })(commentboxes[z]), 500)
+    }
+  })
+  ln[13].addEventListener('click', ()=> {
+     var d=document,els=d.querySelectorAll('p,li,td,article,a div, a span,h1,h2,h3,h4,h5,h6');d.body.insertAdjacentHTML('beforeend',`<table id="myTB"class="mydiv_class"><style>#myTB{position:fixed;top:15px;max-width:fit-content;left:15px;z-index:99999;background:azure;outline:ridge 8px}#myTB td{padding:5px 25px;cursor:default;text-align:center;border:1px solid}#myTB td:hover{background:#D13BFB}</style><tr><td>verdana</td><td>arial</td><td>open sans</td><td>ms reference sans serif</td><td>reset</td><td style="background:red">Close</td></tr></table>`);v=p=>{for(var w of els)w.style.setProperty('font-family',p,'important')};td=[...d.querySelectorAll('#myTB td')];td.forEach(function(it){it.onclick=function(){v(this.innerHTML)}});td.at(-2).onclick=()=>v('');td.at(-1).onclick=()=>document.querySelector('#myTB').remove(); document.querySelector('#bookm').remove()
+  })
+}, 1000);
+  function setMover() {
+    var d = document.querySelector('#bookm'),
+        el = d.querySelector('#right'), betw = d.querySelector('#betw'), tm1, tm2;
+    el.style.left = d.offsetWidth - betw.offsetWidth + 'px';
+    betw.onmouseover=n=>{
+        tm1=setTimeout(()=>{
+          el.style.display=='none' ? el.style.display='inline-block' : "";
+          if (el.getBoundingClientRect().right>1235) {
+             d.style.left = parseInt(d.style.left) - (el.getBoundingClientRect().right-1235) +'px';
+             d.style.transition = "all 0.3s";  setTimeout(()=>d.style.transition = "", 500)
+       } }, 300)
+    }
+    betw.onmouseleave=()=>clearTimeout(tm1);
+    el.onmouseleave=g=>tm2=setTimeout(()=> {el.style.display='none'}, 300) ;
+    el.onmouseover=()=>clearTimeout(tm2);
+  }
+  function GM_xml(url, param) {
+       GM.xmlHttpRequest({
+           method: "GET",
+           url: url,
+           onload: function(response) {
+               let ip = response.responseText,
+               w=open('', '', param); 
+               w.document.write(ip)
+       }  })
+  }
+  function GM_o(url) {GM_openInTab(url, {active: true})}
+  Drag()
+})()
+@@@@@
