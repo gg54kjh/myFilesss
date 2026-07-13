@@ -43,7 +43,7 @@ var str = `
     
     </div>
 
-</div>`; console.log(str);
+</div>`;
 document.body.insertAdjacentHTML('beforeend', str);
 let z = document.querySelector('#zakl'), zs = document.querySelectorAll('#zakl div[ur]');
 document.addEventListener('mousedown', fgh=w=>{
@@ -65,20 +65,20 @@ document.querySelector('#fontsize').onclick=e=> {
 (()=>{var p=document.getElementsByTagName('*'),s=(document.body.fntsz==1)?4:2;for(let g of p){if(!g.style.fontSize||parseInt(g.style.fontSize)<20)g.style.setProperty('font-size','20px','important');g.style.setProperty('font-size',(parseInt(g.style.fontSize)+s)+'px','important');g.style.lineHeight=1.4};document.body.fntsz=1})()
 }
 document.querySelector('#pinfo').onclick=e=> {
-    GM_op('file:///C:/My%20Downloads/JSs/Iz-zakladok.txt', 'pinfo')
+    GM_op('https://raw.githubusercontent.com/gg54kjh/myFilesss/refs/heads/main/EDGE/Iz-zakladok.txt', 'pinfo')
 }
 document.querySelector('#as').onclick=e=> {
-    GM_op('file:///C:/My%20Downloads/JSs/Iz-zakladok-2.txt', 'as') 
+    GM_op('https://raw.githubusercontent.com/gg54kjh/myFilesss/refs/heads/main/EDGE/Iz-zakladok-2.txt', 'as') 
 }
 document.querySelector('#rchild').onclick=e=> {
-    GM_op('file:///C:/My%20Downloads/JSs/Iz-zakladok-2.txt', 'remchildren') 
+    GM_op('https://raw.githubusercontent.com/gg54kjh/myFilesss/refs/heads/main/EDGE/Iz-zakladok-2.txt', 'remchildren') 
 }
 
 document.querySelector('#vs').onclick=e=> {
-    GM_op('file:///C:/My%20Downloads/JSs/Iz-zakladok.txt', 'vs')
+    GM_op('https://raw.githubusercontent.com/gg54kjh/myFilesss/refs/heads/main/EDGE/Iz-zakladok.txt', 'vs')
 }
 document.querySelector('#vi').onclick=e=> {
-    GM_op('file:///C:/My%20Downloads/JSs/Iz-zakladok.txt', 'vi')
+    GM_op('https://raw.githubusercontent.com/gg54kjh/myFilesss/refs/heads/main/EDGE/Iz-zakladok.txt', 'vi')
 }
 document.querySelector('#ip2').onclick=e=> GM_op('https://www.showmyip.com/', 2)
 document.querySelector('#ip3').onclick=e=> GM_op('https://www.bennetrichter.de/tools/ip/', 3)
