@@ -62,7 +62,7 @@ let txt, div, padding = '20px;';  let Y = y_ , X = x_ ,
    div.className = 'mydiv_class _mydrg_';
    if (window.top != window.self) padding = '8px 12px;';
    div.style.cssText = 'position:absolute; background:#FFFCDD; z-index:2147483647; padding:' +
-      padding + 'top:' + (Y - 25 + scrollY) + 'px; left:' + (X + 35) + 'px;' +
+      padding + 'top:' + (Y - 123 + scrollY) + 'px; left:' + (X + 35) + 'px;' +
       'border:1px solid; text-align:start; max-height:300px; word-wrap:break-word;' +
       'overflow-y:auto; line-height:normal !important; color:#000';
    setTimeout(() => {
