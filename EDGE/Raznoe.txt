@@ -26,7 +26,7 @@ line-height:normal;max-height:100vh;overflow:auto`;
 })()
 @@@@@get Text Content    // -----------   Получение Text Content
 (()=> {
-let txt, div, padding = '20px;';  let Y = y_, X = x_; 
+let txt, div, padding = '20px;';  let Y = y_ , X = x_ ,
    a = el = document.elementFromPoint(X, Y);;
    a.style.border = '1px red solid';
    if (a.textContent != '') {
@@ -62,7 +62,7 @@ let txt, div, padding = '20px;';  let Y = y_, X = x_;
    div.className = 'mydiv_class _mydrg_';
    if (window.top != window.self) padding = '8px 12px;';
    div.style.cssText = 'position:absolute; background:#FFFCDD; z-index:2147483647; padding:' +
-      padding + 'top:' + (Y - 25) + 'px; left:' + (X) + 'px;' +
+      padding + 'top:' + (Y - 25 + scrollY) + 'px; left:' + (X + 35) + 'px;' +
       'border:1px solid; text-align:start; max-height:300px; word-wrap:break-word;' +
       'overflow-y:auto; line-height:normal !important; color:#000';
    setTimeout(() => {
