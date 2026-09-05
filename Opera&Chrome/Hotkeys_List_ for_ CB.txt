@@ -41,7 +41,7 @@ Shift + F4 ............ Убирает Ovrl перевода<br>
 Ctrl + Shift + F4 ... Откл. перевод видео<br>
 Ctrl + Shift + 5 ..... keyboard events<br>
 Ctrl + Alt + D ....... Изменить кодировку<br>  страницы<br>
-Ctrl + Alt + = ....... Получить href ссылки без  касания<br>
+Ctrl + Alt + = ....... Получить href ссылки без<br>  касания<br>
 Ctrl + Alt + / ........ Закладки в HTML<br>
 </div>
 </div>
